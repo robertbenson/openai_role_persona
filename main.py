@@ -8,15 +8,15 @@ load_dotenv()
 my_api_key = os.getenv("OPENAI_API_KEY")
 
 
-def run_chat_for_temperature(temperature_req: str):
-    print(f"\n\nRunning chat completion with a persona of: {persona}")
+def run_chat_for_temperature(persona_req: str):
+    print(f"\n\nRunning chat completion with a persona of: {persona_req}")
     completion = client.chat.completions.create(
         model="gpt-4o",
         max_tokens=100,
         temperature=1,
         messages=[
             {"role": "system",
-             "content": persona},
+             "content": persona_req},
             {"role": "user",
              "content": "What is the sky ?"}
         ]
